@@ -1,0 +1,13 @@
+#define HOME_A MT(MOD_LALT, KC_A)
+#define HOME_R MT(MOD_LSFT, KC_R)
+#define HOME_S LT(1,KC_S)
+#define HOME_T MT(MOD_LGUI, KC_T)
+#define HOME_D MEH_T(KC_D)
+
+#define HOME_N MT(MOD_RGUI, KC_N)
+#define HOME_E LT(1,KC_E)
+#define HOME_I MT(MOD_RSFT, KC_I)
+#define HOME_O MT(MOD_RCTL, KC_O)
+#define HOME_H MEH_T(KC_H)
+#define LEFT_THUMB MT(MOD_LGUI, KC_ENTER)
+#define RIGHT_THUMB LT(2,KC_SPACE)
