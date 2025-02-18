@@ -336,8 +336,8 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
   switch (tap_hold_keycode) {
-    case HOME_T:  // A + U.
-      if (other_keycode == HOME_R) { return true; }
+    case KC_T:  // A + U.
+      if (other_keycode == KC_R) { return true; }
       break;
   }
   
