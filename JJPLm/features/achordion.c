@@ -343,11 +343,13 @@ switch (other_keycode) {
 }
 // Allow same-hand holds with non-alpha keys.
 if (other_keycode > KC_Z) { return true; }
+if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
 switch (tap_hold_keycode) {
   case HOME_T:  // T + W
-     if (other_keycode == KC_W) { return true; }
+     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == HOME_R) { return true; }
      break;
+  CASE 
 }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
