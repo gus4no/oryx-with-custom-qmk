@@ -342,6 +342,12 @@ switch (other_keycode) {
 }
 // Allow same-hand holds with non-alpha keys.
 if (other_keycode > KC_Z) { return true; }
+
+switch (tap_hold_keycode) {
+  case KC_T:  // T + W
+     if (oher_keycode == KC_W) { return true; }
+     break;
+}
   
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
@@ -353,7 +359,7 @@ __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
 // By default, Shift and Ctrl mods are eager, and Alt and GUI are not.
 __attribute__((weak)) bool achordion_eager_mod(uint8_t mod) {
-  return (mod & (MOD_LALT | MOD_LGUI)) == 0;
+  return (mod & (MOD_LALT)) == 0;
 }
 
 #ifdef ACHORDION_STREAK
