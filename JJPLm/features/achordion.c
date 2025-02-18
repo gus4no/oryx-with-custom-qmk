@@ -335,11 +335,13 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
-  switch (tap_hold_keycode) {
-    case KC_T:  // A + U.
-      if (other_keycode == KC_R) { return true; }
-      break;
-  }
+switch (other_keycode) {
+  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+  case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+    other_keycode &= 0xff;  // Get base keycode.
+}
+// Allow same-hand holds with non-alpha keys.
+if (other_keycode > KC_Z) { return true; }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
