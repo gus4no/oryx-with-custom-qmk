@@ -349,6 +349,9 @@ switch (tap_hold_keycode) {
   case HOME_T:  // T + W
      if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == HOME_R) { return true; }
      break;
+  case HOME_N:
+     if (other_keycode == KC_U || other_keycode == HOME_E || other_keycode == KC_Y) { return true; }
+     break;
 }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
