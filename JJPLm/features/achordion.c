@@ -345,7 +345,7 @@ if (other_keycode > KC_Z) { return true; }
 
 switch (tap_hold_keycode) {
   case KC_T:  // T + W
-     if (oher_keycode == KC_W) { return true; }
+     if (other_keycode == KC_W) { return true; }
      break;
 }
   
