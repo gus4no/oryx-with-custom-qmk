@@ -21,6 +21,7 @@
  */
 
 #include "achordion.h"
+#include "home_definitions.c"
 
 #if !defined(IS_QK_MOD_TAP)
 // Attempt to detect out-of-date QMK installation, which would fail with
@@ -344,7 +345,7 @@ switch (other_keycode) {
 if (other_keycode > KC_Z) { return true; }
 
 switch (tap_hold_keycode) {
-  case KC_T:  // T + W
+  case HOME_T:  // T + W
      if (other_keycode == KC_W) { return true; }
      break;
 }
