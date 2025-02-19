@@ -342,15 +342,18 @@ switch (other_keycode) {
     other_keycode &= 0xff;  // Get base keycode.
 }
 // Allow same-hand holds with non-alpha keys.
-if (other_keycode > KC_Z) { return true; }
+if (other_keycode > KC_Z) { return true; } 
+
+// left thumb (enter, cmd) can be used with the same hand
 if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
+// allow things like cmd+w with the same hand
 switch (tap_hold_keycode) {
   case HOME_T: 
-     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R) { return true; }
+     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R || other_keycode == KC_S) { return true; }
      break;
   case HOME_N:
-     if (other_keycode == KC_U || other_keycode == HOME_I || other_keycode == KC_Y  || other_keycode == HOME_O) { return true; }
+     if (other_keycode == KC_U || other_keycode == KC_I || other_keycode == KC_Y  || other_keycode == KC_O  || other_keycode == KC_E) { return true; }
      break;
 }
   
