@@ -302,7 +302,7 @@ bool process_achordion(uint16_t keycode, keyrecord_t* record) {
 void achordion_task(void) {
   if (achordion_state == STATE_UNSETTLED &&
       timer_expired(timer_read(), hold_timer)) {
-    settle_as_hold();  // Timeout expired, settle the key as held.
+    settle_as_hold();  // Timeout expired, settle the key as hesld.
   }
 
 #ifdef ACHORDION_STREAK
@@ -347,7 +347,7 @@ if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
 switch (tap_hold_keycode) {
   case HOME_T: 
-     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == HOME_R) { return true; }
+     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R) { return true; }
      break;
   case HOME_N:
      if (other_keycode == KC_U || other_keycode == HOME_I || other_keycode == KC_Y  || other_keycode == HOME_O) { return true; }
@@ -385,6 +385,7 @@ __attribute__((weak)) bool achordion_streak_continue(uint16_t keycode) {
       return true;
   }
   // All other keys end the streak
+  
   return false;
 }
 
