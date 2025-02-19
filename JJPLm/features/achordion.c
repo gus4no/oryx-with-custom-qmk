@@ -346,11 +346,11 @@ if (other_keycode > KC_Z) { return true; }
 if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
 switch (tap_hold_keycode) {
-  case HOME_T:  // T + W
+  case HOME_T: 
      if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == HOME_R) { return true; }
      break;
   case HOME_N:
-     if (other_keycode == KC_U || other_keycode == HOME_E || other_keycode == KC_Y) { return true; }
+     if (other_keycode == KC_U || other_keycode == HOME_I || other_keycode == KC_Y  || other_keycode == HOME_O) { return true; }
      break;
 }
   
