@@ -344,17 +344,19 @@ switch (other_keycode) {
 // Allow same-hand holds with non-alpha keys.
 if (other_keycode > KC_Z) { return true; } 
 
-// left thumb (enter, cmd) can be used with the same hand
+// left thumb (enter, cmd) can be used with the same hand for useful shortcuts
 if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
-// right thumg allows for mouse clicks with the right hand
+// mouse layer activates on right thumb, I need same hand presses here.
 if (tap_hold_keycode == RIGHT_THUMB) { return true; }
 
-// allow things like cmd+w with the same hand
+// allow things like cmd+w with the same hand for my shortcuts
 switch (tap_hold_keycode) {
+  // allow same hand press for CMD + W | Q | F | R
   case HOME_T: 
-     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R || other_keycode == KC_S) { return true; }
+     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R) { return true; }
      break;
+  // allow same hand press for CMD + U | I | O | R | E
   case HOME_N:
      if (other_keycode == KC_U || other_keycode == KC_I || other_keycode == KC_Y  || other_keycode == KC_O  || other_keycode == KC_E) { return true; }
      break;
