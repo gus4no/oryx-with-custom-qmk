@@ -347,6 +347,9 @@ if (other_keycode > KC_Z) { return true; }
 // left thumb (enter, cmd) can be used with the same hand
 if (tap_hold_keycode == LEFT_THUMB) { return true; }
 
+// right thumg allows for mouse clicks with the right hand
+if (tap_hold_keycode == RIGHT_THUMB) { return true; }
+
 // allow things like cmd+w with the same hand
 switch (tap_hold_keycode) {
   case HOME_T: 
