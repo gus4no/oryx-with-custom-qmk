@@ -3,6 +3,12 @@
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
 
+#undef TAPPING_TERM
+#define TAPPING_TERM 180
+
+#undef ONESHOT_TIMEOUT
+#define ONESHOT_TIMEOUT 200
+
 #define PERMISSIVE_HOLD
 
 #undef RGB_MATRIX_TIMEOUT
@@ -23,7 +29,7 @@
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "JJPLm/EeewJA"
+#define SERIAL_NUMBER "JJPLm/KrrJza"
 #define LAYER_STATE_8BIT
 
 #define TAPPING_TERM_PER_KEY
