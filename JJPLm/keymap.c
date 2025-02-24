@@ -33,13 +33,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const uint16_t PROGMEM combo0[] = { MT(MOD_LSFT, KC_R), LT(1,KC_S), COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_X, KC_C, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, KC_TAB),
-    COMBO(combo1, KC_GRAVE),
-};
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
