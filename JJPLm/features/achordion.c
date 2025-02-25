@@ -346,6 +346,7 @@ if (other_keycode > KC_Z) { return true; }
 
 // left thumb (enter, cmd) can be used with the same hand for useful shortcuts
 if (tap_hold_keycode == LEFT_THUMB) { return true; }
+if (tap_hold_keycode == LEFT_THUMB_R) { return true; }
 
 // mouse layer activates on right thumb, I need same hand presses here.
 if (tap_hold_keycode == RIGHT_THUMB) { return true; }
