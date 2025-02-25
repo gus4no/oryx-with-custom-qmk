@@ -26,7 +26,7 @@
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "JJPLm/eaaJDm"
+#define SERIAL_NUMBER "JJPLm/RjjJKN"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 1
 
