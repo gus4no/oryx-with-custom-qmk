@@ -26,7 +26,7 @@
 
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "JJPLm/jZZr3e"
+#define SERIAL_NUMBER "JJPLm/QzzLbD"
 #define LAYER_STATE_8BIT
 
 #define TAPPING_TERM_PER_KEY
