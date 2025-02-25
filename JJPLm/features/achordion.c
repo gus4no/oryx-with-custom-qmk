@@ -336,32 +336,38 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
-switch (other_keycode) {
-  case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-  case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-    other_keycode &= 0xff;  // Get base keycode.
-}
-// Allow same-hand holds with non-alpha keys.
-if (other_keycode > KC_Z) { return true; } 
 
-// left thumb (enter, cmd) can be used with the same hand for useful shortcuts
-if (tap_hold_keycode == LEFT_THUMB) { return true; }
-if (tap_hold_keycode == LEFT_THUMB_R) { return true; }
+  // allow things like cmd+w with the same hand for my shortcuts
+  switch (tap_hold_keycode) {
+    // allow same hand press for CMD + W | Q | F | R
+    case HOME_T:
+       if (other_keycode == KC_Z || other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R) { return true; }
+       break;
+    // allow same hand press for CMD + U | I | O | R | E
+    case HOME_N:
+       if (other_keycode == KC_U || other_keycode == KC_I || other_keycode == KC_Y  || other_keycode == KC_O  || other_keycode == KC_E) { return true; }
+       break;
+    // left thumb (meh, enter) can be used with the same hand for useful shortcuts
+    case LEFT_THUMB:
+      return true;
+      break;
+    case LEFT_THUMB_R:
+      return true;
+      break;
+    // mouse layer activates on right thumb, I need same hand presses here.
+    case RIGHT_THUMB:
+      return true;
+      break;
+  }
 
-// mouse layer activates on right thumb, I need same hand presses here.
-if (tap_hold_keycode == RIGHT_THUMB) { return true; }
+  switch (other_keycode) {
+    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+    case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+      other_keycode &= 0xff;  // Get base keycode.
+  }
 
-// allow things like cmd+w with the same hand for my shortcuts
-switch (tap_hold_keycode) {
-  // allow same hand press for CMD + W | Q | F | R
-  case HOME_T: 
-     if (other_keycode == KC_W || other_keycode == KC_Q || other_keycode == KC_F || other_keycode == KC_R) { return true; }
-     break;
-  // allow same hand press for CMD + U | I | O | R | E
-  case HOME_N:
-     if (other_keycode == KC_U || other_keycode == KC_I || other_keycode == KC_Y  || other_keycode == KC_O  || other_keycode == KC_E) { return true; }
-     break;
-}
+  // Allow same-hand holds with non-alpha keys.
+  if (other_keycode > KC_Z) { return true; }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
