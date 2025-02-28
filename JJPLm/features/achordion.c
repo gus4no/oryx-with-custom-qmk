@@ -365,9 +365,6 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
     case RIGHT_THUMB:
       return true;
       break;
-    case RIGHT_THUMB_R:
-      return true;
-      break;
   }
   
   return achordion_opposite_hands(tap_hold_record, other_record);
