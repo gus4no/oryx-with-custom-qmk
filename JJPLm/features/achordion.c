@@ -362,8 +362,10 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
     case LEFT_THUMB_R:
       return true;
       break;
-    // mouse layer activates on right thumb, I need same hand presses here.
     case RIGHT_THUMB:
+      return true;
+      break;
+    case RIGHT_THUMB_R:
       return true;
       break;
   }
