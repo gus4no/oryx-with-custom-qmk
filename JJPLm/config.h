@@ -1,8 +1,4 @@
-/*
-  Set any config.h overrides for your specific keymap here.
-  See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
-*/
-
+#define CHORDAL_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 180
 
@@ -24,10 +20,10 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 12
 
-#define AUTO_SHIFT_TIMEOUT 165
+#define AUTO_SHIFT_TIMEOUT 150
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "JJPLm/v66pmr"
+#define SERIAL_NUMBER "JJPLm/KrrAel"
 #define LAYER_STATE_8BIT
 
 #define TAPPING_TERM_PER_KEY
