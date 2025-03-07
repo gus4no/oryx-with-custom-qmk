@@ -38,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const uint16_t PROGMEM combo0[] = { KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM combo0[] = { LT(1,KC_E), MT(MOD_RSFT, KC_I), COMBO_END};
+const uint16_t PROGMEM combo1[] = { MT(MOD_LSFT, KC_R), LT(1,KC_S), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_QUOTE),
