@@ -2,6 +2,8 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 175
 
+#define RETRO_TAPPING
+
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM_PER_KEY
 
@@ -24,7 +26,7 @@
 #define AUTO_SHIFT_TIMEOUT 155
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "JJPLm/bvvWAg"
+#define SERIAL_NUMBER "JJPLm/AzzvoK"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 1
 
