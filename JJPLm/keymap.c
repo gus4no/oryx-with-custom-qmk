@@ -43,12 +43,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LALT, KC_A):
             return TAPPING_TERM + 75;
-        case LT(1,KC_S):
-            return TAPPING_TERM -75;
         case MT(MOD_LGUI, KC_ENTER):
             return TAPPING_TERM -25;
-        case LT(1,KC_E):
-            return TAPPING_TERM -75;
         case MT(MOD_RCTL, KC_O):
             return TAPPING_TERM + 75;
         case MEH_T(KC_H):
