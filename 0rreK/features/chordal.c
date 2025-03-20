@@ -4,17 +4,14 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
-                            '*', 'L',  '*', 'R'
+                            '*', 'L',  'R', '*'
     );
 
-
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1, KC_S):
-            // Immediately select the hold action when another key is pressed.
-            return true;
+        case LT(1,KC_S):
+            return 0;
         default:
-            // Do not select the hold action when another key is pressed.
-            return false;
+            return QUICK_TAP_TERM;
     }
 }
