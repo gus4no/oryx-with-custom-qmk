@@ -19,9 +19,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_UP,          KC_RBRC,        KC_AUDIO_VOL_UP,                                KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_EQUAL,       KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LSFT, KC_LEFT),KC_DOWN,        MT(MOD_RGUI, KC_RIGHT),KC_AUDIO_MUTE,                                  KC_UNDS,        MT(MOD_RGUI, KC_4),KC_5,           MT(MOD_RSFT, KC_6),KC_MINUS,       KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_PAGE_UP,     KC_TRANSPARENT, KC_PGDN,        KC_AUDIO_VOL_DOWN,                                KC_TRANSPARENT, MT(MOD_RALT, KC_1),KC_2,           KC_3,           MT(MOD_RALT | MOD_RCTL, KC_DOT),KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_MEDIA_NEXT_TRACK,KC_LBRC,        KC_UP,          KC_RBRC,        KC_AUDIO_VOL_UP,                                KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_EQUAL,       KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_MEDIA_PLAY_PAUSE,MT(MOD_LSFT, KC_LEFT),KC_DOWN,        MT(MOD_RGUI, KC_RIGHT),KC_AUDIO_MUTE,                                  KC_UNDS,        MT(MOD_RGUI, KC_4),KC_5,           MT(MOD_RSFT, KC_6),KC_MINUS,       KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,KC_PAGE_UP,     KC_TRANSPARENT, KC_PGDN,        KC_AUDIO_VOL_DOWN,                                KC_TRANSPARENT, MT(MOD_RALT, KC_1),KC_2,           KC_3,           MT(MOD_RALT | MOD_RCTL, KC_DOT),KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_0
   ),
   [2] = LAYOUT_voyager(
