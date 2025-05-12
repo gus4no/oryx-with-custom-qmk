@@ -20,7 +20,7 @@
 #define AUTO_SHIFT_TIMEOUT 155
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "Wlzlj/dPa3vZ"
+#define SERIAL_NUMBER "Wlzlj/QzXNdn"
 #define LAYER_STATE_8BIT
 
 #define TAPPING_TERM_PER_KEY
