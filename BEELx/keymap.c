@@ -9,7 +9,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(25, KC_8)
+#define DUAL_FUNC_0 LT(18, KC_F10)
+#define DUAL_FUNC_1 LT(27, KC_0)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -36,8 +37,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,                                        KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_RPRN,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_GRAVE,       KC_LBRC,        MT(MOD_LGUI, KC_RBRC),KC_TAB,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       MT(MOD_LGUI, KC_EQUAL),KC_SCLN,        KC_BSLS,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TILD,        KC_LCBR,        KC_RCBR,        KC_GRAVE,       KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_UNDS,        KC_PLUS,        DUAL_FUNC_0,    KC_PIPE,        KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_GRAVE,       KC_LBRC,        KC_RBRC,        KC_TAB,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_MINUS,       KC_EQUAL,       KC_SCLN,        KC_BSLS,        KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TILD,        KC_LCBR,        KC_RCBR,        KC_LEFT_GUI,    KC_TRANSPARENT,                                 KC_TRANSPARENT, DUAL_FUNC_0,    KC_PLUS,        DUAL_FUNC_1,    KC_PIPE,        KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
@@ -140,6 +141,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
 
     case DUAL_FUNC_0:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_UNDS);
+        } else {
+          unregister_code16(KC_UNDS);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_GUI);
+        } else {
+          unregister_code16(KC_RIGHT_GUI);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_1:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
           register_code16(KC_COLN);
