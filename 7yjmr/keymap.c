@@ -34,11 +34,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
+  'L', 'L', 'R', 'R'
+);
+
 const uint16_t PROGMEM combo0[] = { KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_L, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_PAGE_UP, KC_UP, KC_PGDN, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_7, KC_8, KC_9, COMBO_END};
-const uint16_t PROGMEM combo4[] = { MT(MOD_RGUI, KC_N), LT(1, KC_E), MT(MOD_RSFT, KC_I), COMBO_END};
+const uint16_t PROGMEM combo4[] = { MEH_T(KC_H), KC_DOT, KC_COMMA, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
