@@ -1,6 +1,4 @@
 #define CHORDAL_HOLD
-#define PERMISSIVE_HOLD
-
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 300000
 
@@ -21,7 +19,7 @@
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "7yjmr/Ja039m"
+#define SERIAL_NUMBER "7yjmr/XbWw94"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 9
 
