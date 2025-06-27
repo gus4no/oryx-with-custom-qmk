@@ -23,7 +23,7 @@
 #define AUTO_SHIFT_TIMEOUT 160
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "7yjmr/nlYR3R"
+#define SERIAL_NUMBER "7yjmr/pjJRmb"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 8
 
