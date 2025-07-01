@@ -1,4 +1,4 @@
-#define FLOW_TAP_TERM 100
+#define FLOW_TAP_TERM 75
 #define CHORDAL_HOLD
 #define ONESHOT_TAP_TOGGLE 2
 
@@ -23,7 +23,7 @@
 #define AUTO_SHIFT_TIMEOUT 160
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "7yjmr/pjJRmb"
+#define SERIAL_NUMBER "7yjmr/v64gMa"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 8
 
