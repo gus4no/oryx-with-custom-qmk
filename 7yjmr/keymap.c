@@ -43,8 +43,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [4] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_PAGE_UP,     KC_UP,          KC_PGDN,        KC_MEDIA_NEXT_TRACK,                                KC_LBRC,        KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LSFT, KC_LEFT),KC_DOWN,        MT(MOD_RGUI, KC_RIGHT),KC_MEDIA_PLAY_PAUSE,                                KC_RBRC,        MT(MOD_RGUI, KC_4),KC_5,           MT(MOD_RSFT, KC_6),KC_EQUAL,       KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_PAGE_UP,     KC_UP,          KC_PGDN,        KC_MEDIA_NEXT_TRACK,                                KC_TRANSPARENT, KC_7,           KC_8,           KC_9,           KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LSFT, KC_LEFT),KC_DOWN,        MT(MOD_RGUI, KC_RIGHT),KC_MEDIA_PLAY_PAUSE,                                KC_TRANSPARENT, MT(MOD_RGUI, KC_4),KC_5,           MT(MOD_RSFT, KC_6),KC_EQUAL,       KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,  KC_AUDIO_VOL_UP,KC_MEDIA_PREV_TRACK,                                KC_DOT,         MT(MOD_RALT, KC_1),KC_2,           MT(MOD_RCTL, KC_3),KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     MT(MOD_LGUI, KC_SPACE),KC_ENTER,                                       KC_TRANSPARENT, KC_0
   ),
@@ -85,8 +85,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LGUI, KC_ENTER):
             return TAPPING_TERM -50;
         case MT(MOD_RCTL, KC_O):
-            return TAPPING_TERM + 50;
-        case MEH_T(KC_H):
             return TAPPING_TERM + 50;
         case LT(3, KC_SPACE):
             return TAPPING_TERM + 15;
