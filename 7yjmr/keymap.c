@@ -61,7 +61,7 @@ const uint16_t PROGMEM combo5[] = { KC_X, KC_C, MEH_T(KC_D), COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
     COMBO(combo1, KC_ESCAPE),
-    COMBO(combo2, RALT(RCTL(RSFT(KC_SPACE)))),
+    COMBO(combo2, RALT(RCTL(RSFT(KC_GRAVE)))),
     COMBO(combo3, KC_ESCAPE),
     COMBO(combo4, KC_ESCAPE),
     COMBO(combo5, KC_SPACE),
