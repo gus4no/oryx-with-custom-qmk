@@ -223,7 +223,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       case QK_MOD_TAP ... QK_MOD_TAP_MAX:
       case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-        layer_off(_MOUSE);
+        layer_off(3);
+        layer_off(4);
         break;
     }
   }
