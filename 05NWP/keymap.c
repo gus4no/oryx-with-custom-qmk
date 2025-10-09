@@ -185,9 +185,6 @@ bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
   return is_mouse_record_user(keycode, record);
 }
 
-
-
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case QK_MODS ... QK_MODS_MAX:
@@ -219,6 +216,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         rgblight_mode(1);
       }
       return false;
+  }
+
+  // --- New: deactivate mouse layer on MT/LT holds ---
+  if (record->event.pressed) {
+    switch (keycode) {
+      case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+      case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+        layer_off(_MOUSE);
+        break;
+    }
   }
   return true;
 }
