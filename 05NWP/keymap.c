@@ -61,9 +61,11 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
 
 const uint16_t PROGMEM combo0[] = { KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_U, KC_Y, KC_L, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo2[] = { LT(2, KC_E), MT(MOD_RSFT, KC_I), COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo4[] = { MT(MOD_LSFT, KC_R), LT(1, KC_S), COMBO_END};
+const uint16_t PROGMEM combo5[] = { MEH_T(KC_H), KC_COMMA, COMBO_END};
+const uint16_t PROGMEM combo6[] = { KC_COMMA, KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
@@ -71,6 +73,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo2, KC_QUOTE),
     COMBO(combo3, KC_GRAVE),
     COMBO(combo4, KC_TAB),
+    COMBO(combo5, KC_LBRC),
+    COMBO(combo6, KC_RBRC),
 };
 
 #ifdef COMBO_MUST_TAP_PER_COMBO
