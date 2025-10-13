@@ -234,3 +234,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+void oneshot_mods_changed_user(uint8_t mods) {
+  STATUS_LED_4((mods & MOD_MASK_SHIFT) != 0);
+}
