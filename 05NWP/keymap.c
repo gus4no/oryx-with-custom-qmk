@@ -235,6 +235,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-void oneshot_mods_changed_user(uint8_t mods) {
-  STATUS_LED_4((mods & MOD_MASK_SHIFT) != 0);
+layer_state_t layer_state_set_user(layer_state_t state) {
+    // replace MOUSE with your actual layer name
+    if (layer_state_cmp(state, 3) || layer_state_cmp(state, 4)) {
+        clear_oneshot_mods(); // 👈 cancels any active OSM
+    }
+    return state;
 }
