@@ -260,6 +260,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     }
   }
+
+  // --- disable cmd q
+  if ((get_mods() & MOD_BIT(KC_LGUI)) && keycode == KC_Q) {
+    if (record->event.pressed) {
+        // Do nothing on tap → blocks accidental Cmd+Q
+        return false;
+    } else {
+        // Hold → send Cmd+Q
+        register_code(KC_LGUI);
+        tap_code(KC_Q);
+        unregister_code(KC_LGUI);
+        return false;
+    }
+  }
   return true;
 }
 
