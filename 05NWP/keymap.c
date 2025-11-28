@@ -14,9 +14,6 @@ enum custom_keycodes {
   NAVIGATOR_AIM
 };
 
-
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -213,9 +210,6 @@ bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
   return false;
 }
 
-
-
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case QK_MODS ... QK_MODS_MAX:
@@ -284,19 +278,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
   }
 
-  // --- disable cmd q
-  if ((get_mods() & MOD_BIT(KC_LGUI)) && keycode == KC_Q) {
-    if (record->event.pressed) {
-        // Do nothing on tap → blocks accidental Cmd+Q
-        return false;
-    } else {
-        // Hold → send Cmd+Q
-        register_code(KC_LGUI);
-        tap_code(KC_Q);
-        unregister_code(KC_LGUI);
-        return false;
-    }
-  }
   return true;
 }
 
