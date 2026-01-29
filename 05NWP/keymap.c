@@ -75,7 +75,7 @@ const uint16_t PROGMEM combo1[] = { KC_U, KC_Y, KC_L, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_G, KC_M, COMBO_END};
-const uint16_t PROGMEM combo5[] = { LT(2, KC_E), MT(MOD_RSFT, KC_I), COMBO_END};
+const uint16_t PROGMEM combo5[] = { KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
@@ -265,15 +265,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   // --- New: deactivate mouse layer on MT/LT holds ---
-  if (record->event.pressed) {
-    switch (keycode) {
-      case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-      case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-        layer_off(3);
-        layer_off(4);
-        break;
-    }
-  }
+  // if (record->event.pressed) {
+  //   switch (keycode) {
+  //     case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+  //     case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+  //       layer_off(3);
+  //       layer_off(4);
+  //       break;
+  //   }
+  // }
 
   return true;
 }
