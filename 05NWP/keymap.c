@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, DRAG_SCROLL,    KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, NAVIGATOR_AIM,  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN1,     KC_MS_BTN3,     KC_MS_BTN2,     KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, DRAG_SCROLL,                                    KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -90,8 +90,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LALT, KC_A):
             return TAPPING_TERM + 50;
+        case MT(MOD_LSFT, KC_R):
+            return TAPPING_TERM -15;
         case LT(1, KC_S):
             return TAPPING_TERM -25;
+        case MT(MOD_RSFT, KC_I):
+            return TAPPING_TERM -15;
         default:
             return TAPPING_TERM;
     }
@@ -186,8 +190,18 @@ void pointing_device_init_user(void) {
 }
 
 bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
-  // All keys are not mouse keys when one shot auto mouse is enabled.
+  // Treat all keys as mouse keys when in the automouse layer so that any key set resets the timeout without leaving the layer.
+  if (!layer_state_is(AUTO_MOUSE_TARGET_LAYER)){
+    // When depressing a mouse key with a LT key at the same time, the mouse key tracker is not decremented.
+    // This is a workaround to fix that
+    if (IS_MOUSE_KEYCODE(keycode) && !record->event.pressed) {
+      return true;
+    }
   return false;
+}
+  else {
+    return true;
+  }
 }
 
 
