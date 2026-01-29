@@ -15,7 +15,7 @@ RUN apt update && apt install -y \
     dfu-programmer \
     dfu-util \
     dos2unix \
-    make \
+    make
 
 RUN python3 -m pip install qmk appdirs --break-system-packages
 
