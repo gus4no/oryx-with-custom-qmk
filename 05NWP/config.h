@@ -1,4 +1,3 @@
-#define SPECULATIVE_HOLD
 #define FLOW_TAP_TERM 25
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
