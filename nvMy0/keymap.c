@@ -191,6 +191,9 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_
         case MT(MOD_RGUI, KC_N):
         case MT(MOD_LSFT, KC_R):
         case MT(MOD_RSFT, KC_I):
+        // Its tap keycode (S) is a letter, so Flow Tap would otherwise force a
+        // tap on fast rolls and never let the layer hold register.
+        case LT(1, KC_S):
             return 0;
     }
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
