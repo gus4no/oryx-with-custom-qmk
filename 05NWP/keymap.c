@@ -63,18 +63,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo3, KC_GRAVE),
 };
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_R):
-            return TAPPING_TERM -65;
-        case LT(1, KC_S):
-            return TAPPING_TERM -75;
-        case MT(MOD_RSFT, KC_I):
-            return TAPPING_TERM -65;
-        default:
-            return TAPPING_TERM;
-    }
-}
 
 
 extern rgb_config_t rgb_matrix_config;
