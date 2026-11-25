@@ -74,18 +74,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo4, SCROLL_TAP_HOLD),
 };
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_R):
-            return TAPPING_TERM -65;
-        case LT(1, KC_S):
-            return TAPPING_TERM -75;
-        case MT(MOD_RSFT, KC_I):
-            return TAPPING_TERM -65;
-        default:
-            return TAPPING_TERM;
-    }
-}
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
     switch (keycode) {
