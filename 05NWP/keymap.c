@@ -7,7 +7,16 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
+  SCROLL_TAP_HOLD,
 };
+
+// Tap the drag-scroll combo: toggle persistent scrolling on/off.
+// Hold it past this term: scroll only while held, like DRAG_SCROLL.
+#define SCROLL_TAP_HOLD_TERM 150
+
+static bool     scroll_th_pressed = false;
+static bool     scroll_th_held    = false;
+static uint16_t scroll_th_timer   = 0;
 
 
 
@@ -56,15 +65,13 @@ const uint16_t PROGMEM combo1[] = { KC_U, KC_Y, KC_L, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo4[] = { MT(MOD_RSFT, KC_I),MT(MOD_RCTL, KC_O), COMBO_END};
-const uint16_t PROGMEM combo5[] = { KC_C, KC_L, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_ESCAPE),
     COMBO(combo1, KC_ESCAPE),
     COMBO(combo2, KC_QUOTE),
     COMBO(combo3, KC_GRAVE),
-    COMBO(combo4, DRAG_SCROLL),
-    COMBO(combo5, KC_CAPS),
+    COMBO(combo4, SCROLL_TAP_HOLD),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -78,6 +85,22 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         default:
             return TAPPING_TERM;
     }
+}
+
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    switch (keycode) {
+        // Cmd and Shift live on the home row; exempt them from Flow Tap so
+        // Cmd+<key> and capitalization fire immediately even right after fast typing.
+        case MT(MOD_LGUI, KC_T):
+        case MT(MOD_RGUI, KC_N):
+        case MT(MOD_LSFT, KC_R):
+        case MT(MOD_RSFT, KC_I):
+            return 0;
+    }
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+        return FLOW_TAP_TERM;
+    }
+    return 0;
 }
 
 extern rgb_config_t rgb_matrix_config;
@@ -177,6 +200,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         rgblight_mode(1);
       }
       return false;
+
+    case SCROLL_TAP_HOLD:
+      if (record->event.pressed) {
+        scroll_th_pressed = true;
+        scroll_th_held    = false;
+        scroll_th_timer   = timer_read();
+      } else {
+        scroll_th_pressed = false;
+        if (scroll_th_held) {
+          // Was already promoted to a hold: stop scrolling on release, like DRAG_SCROLL.
+          set_scrolling = false;
+        } else {
+          // Released before the hold term: treat as a tap, toggle persistent scrolling.
+          set_scrolling = !set_scrolling;
+        }
+      }
+      return false;
   }
 
   if (record->event.pressed && IS_LAYER_ON(3)) {
@@ -186,6 +226,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   return true;
+}
+
+void matrix_scan_user(void) {
+  if (scroll_th_pressed && !scroll_th_held && timer_elapsed(scroll_th_timer) > SCROLL_TAP_HOLD_TERM) {
+    scroll_th_held = true;
+    set_scrolling  = true;
+  }
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
