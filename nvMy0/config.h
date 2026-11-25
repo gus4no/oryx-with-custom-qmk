@@ -1,3 +1,4 @@
+#define FLOW_TAP_TERM 150
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
@@ -34,7 +35,7 @@
 #define AUTO_SHIFT_TIMEOUT 160
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "nvMy0/Qz0qEW"
+#define SERIAL_NUMBER "nvMy0/zLO9G3"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 2
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
