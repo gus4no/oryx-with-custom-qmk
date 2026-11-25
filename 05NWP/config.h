@@ -35,7 +35,7 @@
 #define AUTO_SHIFT_TIMEOUT 160
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
-#define SERIAL_NUMBER "05NWP/9DeO37"
+#define SERIAL_NUMBER "05NWP/Ee6NlG"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 4
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
