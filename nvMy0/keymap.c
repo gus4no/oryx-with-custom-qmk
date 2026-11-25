@@ -7,6 +7,7 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
+  MAC_MISSION_CONTROL,
 };
 
 
@@ -16,8 +17,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_GRAVE,       KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                                           KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCLN,        KC_QUOTE,       
-    KC_TAB,         MT(MOD_LCTL, KC_A),MT(MOD_LSFT, KC_R),LT(1, KC_S),    MT(MOD_LGUI, KC_T),KC_G,                                           KC_M,           MT(MOD_RGUI, KC_N),LT(2, KC_E),    MT(MOD_RSFT, KC_I),MT(MOD_RCTL, KC_O),KC_MINUS,       
-    CW_TOGG,        KC_Z,           KC_X,           KC_C,           MEH_T(KC_D),    KC_V,                                           KC_K,           MEH_T(KC_H),    KC_COMMA,       KC_DOT,         KC_SLASH,       KC_EQUAL,       
+    KC_TAB,         MT(MOD_LCTL, KC_A),MT(MOD_LSFT, KC_A),LT(1, KC_S),    MT(MOD_LGUI, KC_T),KC_G,                                           KC_M,           MT(MOD_RGUI, KC_N),LT(2, KC_E),    MT(MOD_RSFT, KC_I),MT(MOD_RCTL, KC_O),KC_MINUS,       
+    MAC_MISSION_CONTROL,KC_Z,           KC_X,           KC_C,           MEH_T(KC_D),    KC_V,                                           KC_K,           MEH_T(KC_H),    KC_COMMA,       KC_DOT,         KC_SLASH,       KC_EQUAL,       
                                                     KC_ENTER,       OSM(MOD_LSFT),                                  KC_BSPC,        KC_SPACE
   ),
   [1] = LAYOUT_voyager(
@@ -59,18 +60,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo1, KC_ESCAPE),
 };
 
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_R):
-            return TAPPING_TERM -65;
-        case LT(1, KC_S):
-            return TAPPING_TERM -75;
-        case MT(MOD_RSFT, KC_I):
-            return TAPPING_TERM -65;
-        default:
-            return TAPPING_TERM;
-    }
-}
 
 
 extern rgb_config_t rgb_matrix_config;
@@ -165,6 +154,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
     }
     break;
+    case MAC_MISSION_CONTROL:
+      HCS(0x29F);
 
     case RGB_SLD:
       if (record->event.pressed) {
